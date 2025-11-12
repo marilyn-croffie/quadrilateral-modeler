@@ -1,8 +1,8 @@
-public final class PointUtils
+public final class GeometryUtils
 {
   private static final double EPSILON = 1e-9;
   
-  private PointUtils(){} // private constructor to prevent instantiation
+  private GeometryUtils(){} // private constructor to prevent instantiation
 
   // Check if three points are collinear
   public static boolean areCollinear(Point p1, Point p2, Point p3)
@@ -28,4 +28,5 @@ public final class PointUtils
 
   
 }
+
 

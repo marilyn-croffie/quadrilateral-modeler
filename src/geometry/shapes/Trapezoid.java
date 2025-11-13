@@ -4,6 +4,7 @@
 // with a pair of parallel opposite sides
 // This (sub)class inherits from the Quadrilateral (super)class
 // Created 6/28/25
+package geometry.shapes;
 
 import static java.lang.Math.abs;
 import static java.lang.Math.sqrt;
@@ -235,4 +236,5 @@ public class Trapezoid extends Quadrilateral
        
         return area;
     }
+
 }

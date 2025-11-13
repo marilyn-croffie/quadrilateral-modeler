@@ -39,7 +39,7 @@ public abstract class Quadrilateral
 
         if (!isParallelOrder(points))
         {
-            points = Point[]{points[1], points[2], points[3], points[0]};
+            points = new Point[]{points[1], points[2], points[3], points[0]};
             if (!isParallelOrder(points))
             {
                 throw new IllegalArgumentException("Points do not form a quadrilateral with parallel sides");
@@ -84,5 +84,6 @@ public abstract class Quadrilateral
     }
 
 }
+
 
 

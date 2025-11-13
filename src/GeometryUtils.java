@@ -24,15 +24,19 @@ public final class GeometryUtils
 
   public static boolean areDuplicates(Point p1, Point p2, Point p3)
   {
-     return p1.equals(p2) ||
-            p2.equals(p3);
+     return areDuplicates(p1, p2) ||
+            areDuplicates(p2, p3);
   }
 
   public static boolean areDuplicates(Point p1, Point p2, Point p3, Point p4)
   {
-     return p1.equals(p2) ||
-            p2.equals(p3) ||
-            p3.equals(p4);
+     return areDuplicates(p1, p2, p3) ||
+            areDuplicates(p3, p4);
+  }
+
+  public static boolean areDuplicates(Point[] points)
+  {
+     return areDuplicates(points[0], points[1], points[2], points[3]);
   }
 
   public static boolean areParallel(Point v1, Point v2)
@@ -64,6 +68,11 @@ public final class GeometryUtils
         return areCollinear(p1, p2, p3) ||
                areCollinear(p1, p2, p4) ||
                areCollinear(p1, p3, p4);
+  }
+
+  public static boolean areCollinear(Point[] points) 
+  {
+        return areCollinear(points[0], points[1], points[2], points[3]);
   }
 
   public static double distance(Point p1, Point p2)
@@ -118,4 +127,5 @@ public final class GeometryUtils
     return areParallel(sideA, sideB);
   }
 }
+
 

@@ -17,13 +17,6 @@ public final class GeometryUtils
     return Math.abs(value) < EPSILON;
   }
 
-  public static boolean areParallel(Point v1, Point v2)
-  {
-    double cross = v1.getY() * v2.getX() - v2.getY() * v1.getX();
-    
-    return isZero(cross);
-  }
-
   public static boolean areDuplicates(Point p1, Point p2)
   {
      return p1.equals(p2);
@@ -40,6 +33,13 @@ public final class GeometryUtils
      return p1.equals(p2) ||
             p2.equals(p3) ||
             p3.equals(p4);
+  }
+
+  public static boolean areParallel(Point v1, Point v2)
+  {
+    double cross = v1.getY() * v2.getX() - v2.getY() * v1.getX();
+    
+    return isZero(cross);
   }
 
   public static boolean arePerpendicular(Point v1, Point v2)
@@ -114,48 +114,7 @@ public final class GeometryUtils
   {
     Point sideA = toVector(points[0],points[1]);
     Point sideB = toVector(points[2],points[3]);
-    Point sideC = toVector(points[1],points[2]);
-    Point sideD = toVector(points[3],points[0]);
 
-    boolean pair1 = areParallel(sideA, sideB);
-    boolean pair2 = areParallel(sideC, sideD);
-
-    List<Point> pts = new ArrayList<>();
-
-    if (pair1)
-    {
-      return true;
-    }
-    else if (pair2)
-    {
-      return false;
-    }
-    else
-    {
-      // No parallel sides
-      throw new IllegalArgumentException("Points do not form a quadrilateral with parallel sides");
-    }
+    return areParallel(sideA, sideB);
   }
-
-  public static Point[] reOrder(Point p1, Point p2, Point p3, Point p4)
-  {
-    Point[] pts = new Point[]{p1, p2, p3, p4};
-    pts = sortPointsCyclic(pts);
-    
-    if (isParallelOrder(pts))
-    {
-      return pts;
-    }
-    else
-    {
-      return new Point[]{pts[1], pts[2], pts[3], pts[0]};
-    }
-  } 
 }
-
-
-
-
-
-
-

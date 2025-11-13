@@ -47,7 +47,45 @@ public final class GeometryUtils
                areCollinear(p1, p2, p4) ||
                areCollinear(p1, p3, p4);
   }
+
+  public static double distance(Point p1, Point p2)
+  {
+    Point v = toVector(p1, p2);
+
+    return Math.sqrt(v.getX() * v.getX() + v.getY() * v.getY());
+  }
+
+  private Point[] sortPointsCyclic(Point[] points) 
+  {
+    // Compute center point
+    double sumX = 0, sumY = 0;
+    
+    for (Point p : points) 
+    {
+        sumX += p.getX();
+        sumY += p.getY();
+    }
+    
+    final double centerX = sumX / points.length;
+    final double centerY = sumY / points.length;
+
+    // Sort by angle from center
+    Arrays.sort(points, (a, b) -> 
+    {
+        double angleA = Math.atan2(a.getY() - centerY, a.getX() - centerX);
+        double angleB = Math.atan2(b.getY() - centerY, b.getX() - centerX);
+        return Double.compare(angleA, angleB);
+    });
+
+    return points;
+} 
+
+  public static double height(Point p1, Point p2)
+  {
+
+  }
 }
+
 
 
 

@@ -23,31 +23,6 @@ public abstract class Quadrilateral
         this.p3 = pts[2];
         this.p4 = pts[3];
     }
-
-    // Helper Method(s)
-    // validates point by checking for:
-    // i. duplicates, and
-    // ii. collinearity of three points
-    protected Point[] validate(Point[] points)
-    {
-        if (areDuplicates(points) || areCollinear(points))
-        {
-            throw new IllegalArgumentException("Points do not form a quadrilateral");
-        }
-
-        points = sortPointsCyclic(points);
-
-        if (!isParallelOrder(points))
-        {
-            points = new Point[]{points[1], points[2], points[3], points[0]};
-            if (!isParallelOrder(points))
-            {
-                throw new IllegalArgumentException("Points do not form a quadrilateral with parallel sides");
-            }
-        }
-
-        return points;
-    }
     
     // Get Methods
     // return first endpoint
@@ -84,6 +59,7 @@ public abstract class Quadrilateral
     }
 
 }
+
 
 
 

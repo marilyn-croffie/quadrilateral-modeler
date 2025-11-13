@@ -24,6 +24,24 @@ public final class GeometryUtils
     return isZero(cross);
   }
 
+  public static boolean areDuplicates(Point p1, Point p2)
+  {
+     return p1.equals(p2);
+  }
+
+  public static boolean areDuplicates(Point p1, Point p2, Point p3)
+  {
+     return p1.equals(p2) ||
+            p2.equals(p3);
+  }
+
+  public static boolean areDuplicates(Point p1, Point p2, Point p3, Point p4)
+  {
+     return p1.equals(p2) ||
+            p2.equals(p3) ||
+            p3.equals(p4);
+  }
+
   public static boolean arePerpendicular(Point v1, Point v2)
   {
     double dot = v1.getX() * v2.getX() + v1.getY() * v2.getY();
@@ -134,6 +152,7 @@ public final class GeometryUtils
     }
   } 
 }
+
 
 
 

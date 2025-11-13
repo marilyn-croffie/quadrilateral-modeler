@@ -3,8 +3,9 @@
 // Quadrilateral class represents any shape with four sides
 // This is the superclass which other (sub)classes inherit from
 // Created 6/27/25
+package geometry.shapes;
 
-import GeometryUtils;
+import geometry.GeometryUtils;
 
 public abstract class Quadrilateral 
 {
@@ -82,3 +83,4 @@ public abstract class Quadrilateral
     }
 
 }
+

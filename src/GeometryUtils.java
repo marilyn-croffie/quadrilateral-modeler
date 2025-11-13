@@ -24,7 +24,7 @@ public final class GeometryUtils
     return isZero(cross);
   }
 
-  public static arePerpendicular(Point v1, Point v2)
+  public static boolean arePerpendicular(Point v1, Point v2)
   {
     double dot = v1.getX() * v2.getX() + v1.getY() * v2.getY();
 
@@ -67,7 +67,7 @@ public final class GeometryUtils
     return cross / lineLength;
   }
 
-  private Point[] sortPointsCyclic(Point[] points) 
+  private static Point[] sortPointsCyclic(Point[] points) 
   {
     // Compute center point
     double sumX = 0, sumY = 0;
@@ -92,7 +92,7 @@ public final class GeometryUtils
     return points;
   } 
 
-  private boolean isParallelOrder(Point[] points)
+  private static boolean isParallelOrder(Point[] points)
   {
     Point sideA = toVector(points[0],points[1]);
     Point sideB = toVector(points[2],points[3]);
@@ -119,10 +119,10 @@ public final class GeometryUtils
     }
   }
 
-  public static Points[] reOrder(Point p1, Point p2, Point p3, Point p4)
+  public static Point[] reOrder(Point p1, Point p2, Point p3, Point p4)
   {
     Point[] pts = new Point[]{p1, p2, p3, p4};
-    pts = sortPointCyclic(pts);
+    pts = sortPointsCyclic(pts);
     
     if (isParallelOrder(pts))
     {
@@ -130,11 +130,11 @@ public final class GeometryUtils
     }
     else
     {
-      pts = new Point[]{p2, p3, p4, p1};
-      return pts;
+      return new Point[]{pts[1], pts[2], pts[3], pts[0]};
     }
   } 
 }
+
 
 
 

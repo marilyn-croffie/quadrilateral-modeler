@@ -13,47 +13,39 @@ public abstract class Quadrilateral {
     public Quadrilateral(Point p1, Point p2, Point p3, Point p4)
     {
         Point[] pts = new Point[]{p1,p2,p3,p4};
-        validator(pts);
+        pts = validator(pts);
+
+        p1 = pts[0];
+        p2 = pts[1];
+        p3 = pts[2];
+        p4 = pts[3];
     }
 
     // Helper Method(s)
     // validates point by checking for:
     // i. duplicates, and
     // ii. collinearity of three points
-    protected void validator(Point[] points)
+    protected Point[] validator(Point[] points)
     {
-        if (areDuplicates(points))
+        if (areDuplicates(points) || areCollinear(points))
         {
             throw new IllegalArgumentException("Points do not form a quadrilateral");
         }
 
-        if (areCollinear(points))
-        {
-            throw new IllegalArgumentException("Points form a straight line");
-        }
-        
         points = sortPointsCyclic(points);
 
-        if (isParallelOrder(points))
+        if (!isParallelOrder(points))
         {
-            p1 = points[0];
-            p2 = points[1];
-            p3 = points[2];
-            p4 = points[3];
+            points = Point[]{points[1], points[2], points[3], points[0])};
+            if (!isParallelOrder(points))
+            {
+                throw new IllegalArgumentException("Points do not form a quadrilateral with parallel sides");
+            }
         }
-        else if (isParallelOrder(Point[]{points[1], points[2], points[3], points[0]))
-        {
-            p1 = points[0];
-            p2 = points[1];
-            p3 = points[2];
-            p4 = points[3];
-        }
-        else
-        {
-            throw new IllegalArgumentException("Points do not form a quadrilateral with parallel sides");
-        }
-    }
 
+        return points;
+    }
+    
     // Get Methods
     // return first endpoint
     public Point getPoint1()
@@ -89,3 +81,4 @@ public abstract class Quadrilateral {
     }
 
 }
+

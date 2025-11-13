@@ -31,6 +31,8 @@
  * @since 1.0
  */
 
+package geometry;
+
 public final class Point 
 {
     private final double x; 
@@ -169,3 +171,4 @@ public final class Point
         return String.format("Point(%.1f, %.1f)", x, y);
     }
 }
+

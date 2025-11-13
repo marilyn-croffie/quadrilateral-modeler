@@ -13,17 +13,6 @@ public abstract class Quadrilateral
 
     private Point p1, p2, p3, p4;
 
-    public Quadrilateral(Point p1, Point p2, Point p3, Point p4)
-    {
-        Point[] pts = new Point[]{p1,p2,p3,p4};
-        pts = validate(pts);
-
-        this.p1 = pts[0];
-        this.p2 = pts[1];
-        this.p3 = pts[2];
-        this.p4 = pts[3];
-    }
-    
     // Get Methods
     // return first endpoint
     public Point getPoint1()
@@ -57,9 +46,4 @@ public abstract class Quadrilateral
             "The four vertices of this quadrilateral are:", "first vertex : ", p1, 
                 "second vertex : ", p2, "third vertex : ", p3, "fourth vertex : ", p4);
     }
-
 }
-
-
-
-

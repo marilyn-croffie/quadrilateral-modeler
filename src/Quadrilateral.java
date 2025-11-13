@@ -6,7 +6,8 @@
 
 import GeometryUtils;
 
-public abstract class Quadrilateral {
+public abstract class Quadrilateral 
+{
 
     private Point p1, p2, p3, p4;
 
@@ -81,4 +82,5 @@ public abstract class Quadrilateral {
     }
 
 }
+
 

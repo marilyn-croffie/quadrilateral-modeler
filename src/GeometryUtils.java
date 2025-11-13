@@ -17,27 +17,18 @@ public final class GeometryUtils
     return Math.abs(value) < EPSILON;
   }
 
-  public static boolean areDuplicates(Point p1, Point p2)
-  {
-     return p1.equals(p2);
-  }
-
-  public static boolean areDuplicates(Point p1, Point p2, Point p3)
-  {
-     return areDuplicates(p1, p2) ||
-            areDuplicates(p2, p3);
-  }
-
-  public static boolean areDuplicates(Point p1, Point p2, Point p3, Point p4)
-  {
-     return areDuplicates(p1, p2, p3) ||
-            areDuplicates(p3, p4);
-  }
-
   public static boolean areDuplicates(Point[] points)
   {
-     return areDuplicates(points[0], points[1], points[2], points[3]);
-  }
+     for (int i = 0; i < points.length; i++) 
+     {
+       for (int j = i + 1; j < points.length; j++) 
+       {
+         if (points[i].equals(points[j])) 
+           return true;
+       }
+     }
+
+   }
 
   public static boolean areParallel(Point v1, Point v2)
   {
@@ -127,5 +118,6 @@ public final class GeometryUtils
     return areParallel(sideA, sideB);
   }
 }
+
 
 

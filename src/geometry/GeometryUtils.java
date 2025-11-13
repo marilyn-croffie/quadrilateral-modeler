@@ -1,3 +1,5 @@
+package geometry;
+
 import java.util.Arrays;
 
 public final class GeometryUtils
@@ -121,6 +123,7 @@ public final class GeometryUtils
     return areParallel(sideA, sideB);
   }
 }
+
 
 
 

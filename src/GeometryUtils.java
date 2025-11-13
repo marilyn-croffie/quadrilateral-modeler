@@ -85,7 +85,7 @@ public final class GeometryUtils
     return cross / lineLength;
   }
 
-  private static Point[] sortPointsCyclic(Point[] points) 
+  public static Point[] sortPointsCyclic(Point[] points) 
   {
     // Compute center point
     double sumX = 0, sumY = 0;
@@ -110,7 +110,7 @@ public final class GeometryUtils
     return points;
   } 
 
-  private static boolean isParallelOrder(Point[] points)
+  public static boolean isParallelOrder(Point[] points)
   {
     Point sideA = toVector(points[0],points[1]);
     Point sideB = toVector(points[2],points[3]);
@@ -118,3 +118,4 @@ public final class GeometryUtils
     return areParallel(sideA, sideB);
   }
 }
+

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public final class GeometryUtils
 {
   private static final double EPSILON = 1e-9;
@@ -28,6 +30,7 @@ public final class GeometryUtils
        }
      }
 
+    return false;
    }
 
   public static boolean areParallel(Point v1, Point v2)
@@ -118,6 +121,7 @@ public final class GeometryUtils
     return areParallel(sideA, sideB);
   }
 }
+
 
 
 

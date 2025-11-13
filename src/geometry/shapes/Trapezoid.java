@@ -40,6 +40,32 @@ public class Trapezoid extends Quadrilateral
     }
 
     // Helper Method(s)
+    // validates point by checking for:
+    // i. duplicates,
+    // ii. collinearity, and
+    // iii. parallel sides
+    protected Point[] validate(Point[] points)
+    {
+        if (areDuplicates(points) || areCollinear(points))
+        {
+            throw new IllegalArgumentException("Points do not form a quadrilateral");
+        }
+
+        points = sortPointsCyclic(points);
+
+        if (!isParallelOrder(points))
+        {
+            points = new Point[]{points[1], points[2], points[3], points[0]};
+            if (!isParallelOrder(points))
+            {
+                throw new IllegalArgumentException("Points do not form a quadrilateral with parallel sides");
+            }
+        }
+
+        return points;
+    }
+
+    // Helper Method(s)
     // returns lists of line segments with the same slope
     protected final HashMap<Double, List<List<Point>>> segmentSlopes(List<Point> vertices)
     {
@@ -238,3 +264,4 @@ public class Trapezoid extends Quadrilateral
     }
 
 }
+

@@ -6,6 +6,7 @@
 // Created 6/28/25
 package geometry.shapes;
 
+import geometry.Point;
 import static geometry.GeometryUtils;
 import static java.lang.Math;
 import java.util.ArrayList;
@@ -60,6 +61,7 @@ public class Trapezoid extends Quadrilateral
     }
 
 }
+
 
 
 

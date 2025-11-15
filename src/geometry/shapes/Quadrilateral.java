@@ -14,8 +14,8 @@ public abstract class Quadrilateral
 
     public Quadrilateral(Point p1, Point p2, Point p3, Point p4)
     {
-        Point[] pts = new Point[]{p1,p2,p3,p4};
-        pts = validate(pts);
+        Point[] points = new Point[]{p1,p2,p3,p4};
+        pts = validate(points);
 
         this.pts = pts;
     }
@@ -27,9 +27,7 @@ public abstract class Quadrilateral
             throw new IllegalArgumentException("Points do not form a quadrilateral");
         }
 
-        points = sortPointsCyclic(points);
-
-        return points;
+        return sortPointsCyclic(points);
     }
     
     // Get Methods
@@ -66,6 +64,7 @@ public abstract class Quadrilateral
                 "second vertex : ", getP2(), "third vertex : ", getP3(), "fourth vertex : ", getP4());
     }
 }
+
 
 
 

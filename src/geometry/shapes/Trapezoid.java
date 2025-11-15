@@ -7,7 +7,7 @@
 package geometry.shapes;
 
 import geometry.Point;
-import static geometry.GeometryUtils;
+import static geometry.GeometryUtils.*;
 import static java.lang.Math;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,8 +16,6 @@ import java.util.List;
 
 public class Trapezoid extends Quadrilateral 
 {
-    private Point[] pts;
-    
     public Trapezoid(Point p1, Point p2, Point p3, Point p4)
     {
         // Initialize using superclass constructor
@@ -61,6 +59,7 @@ public class Trapezoid extends Quadrilateral
     }
 
 }
+
 
 
 

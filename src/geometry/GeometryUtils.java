@@ -21,6 +21,16 @@ public final class GeometryUtils
     return Math.abs(value) < EPSILON;
   }
 
+  private static double cross(Point v1, Point v2)
+  {
+    return v1.getY() * v2.getX() - v2.getY() * v1.getX();
+  }
+
+  private static double dot(Point v1, Point v2)
+  {
+    return v1.getX() * v2.getX() + v1.getY() * v2.getY();
+  }
+  
   public static boolean areDuplicates(Point[] points)
   {
      for (int i = 0; i < points.length; i++) 
@@ -36,17 +46,28 @@ public final class GeometryUtils
    }
 
   public static boolean areParallel(Point v1, Point v2)
-  {
-    double cross = v1.getY() * v2.getX() - v2.getY() * v1.getX();
-    
-    return isZero(cross);
+  { 
+    return isZero(cross(v1,v2));
   }
 
   public static boolean arePerpendicular(Point v1, Point v2)
   {
-    double dot = v1.getX() * v2.getX() + v1.getY() * v2.getY();
+    return isZero(dot(v1,v2));
+  }
 
-    return isZero(dot);
+  public static boolean areAllRightAngles(Point[] points)
+  {
+    Point l1 = toVector(points[0], points[1]);
+    Point l2 = toVector(points[1], points[2]);
+    Point l3 = toVector(points[2], points[3]);
+    Point l4 = toVector(points[3], points[0]);
+      
+    boolean a1 = arePerpendicular(l1,l2);
+    boolean a2 = arePerpendicular(l2,l3);
+    boolean a3 = arePerpendicular(l3,l4);
+    boolean a4 = arePerpendicular(l4,l1);
+
+    return a1 && a2 && a3 && a4;
   }
     
   // Check if three points are collinear
@@ -84,7 +105,7 @@ public final class GeometryUtils
     Point pointVector =  toVector(p1,p3);
     
     // Cross product magnitude divided by line length
-    double cross = Math.abs(lineVector.getX() * pointVector.getY() - lineVector.getY() * pointVector.getX());
+    double cross = Math.abs(cross(pointVector, lineVector));
     double lineLength = distance(p1, p2);
     
     return cross / lineLength;
@@ -123,8 +144,3 @@ public final class GeometryUtils
     return areParallel(sideA, sideB);
   }
 }
-
-
-
-
-

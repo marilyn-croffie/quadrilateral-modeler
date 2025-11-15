@@ -62,12 +62,10 @@ public final class GeometryUtils
     Point l3 = toVector(points[2], points[3]);
     Point l4 = toVector(points[3], points[0]);
       
-    boolean a1 = arePerpendicular(l1,l2);
-    boolean a2 = arePerpendicular(l2,l3);
-    boolean a3 = arePerpendicular(l3,l4);
-    boolean a4 = arePerpendicular(l4,l1);
-
-    return a1 && a2 && a3 && a4;
+    return arePerpendicular(l1,l2) &&
+           arePerpendicular(l2,l3) &&
+           arePerpendicular(l3,l4) &&
+           arePerpendicular(l4,l1);
   }
 
   public static boolean allSidesEqual(Point[] points)
@@ -77,12 +75,9 @@ public final class GeometryUtils
     double s3 = distance(points[2], points[3]);
     double s4 = distance(points[3], points[0]);
 
-    boolean S1 = isZero(l1-l2);
-    boolean S2 = isZero(l2-l3);
-    boolean S3 = isZero(l3-l4);
-    boolean S4 = isZero(l4-l1);
-
-    return S1 && S2 && S3 && S4;
+    return isZero(s1 - s2) &&
+           isZero(s2 - s3) &&
+           isZero(s3 - s4);
   }
     
   // Check if three points are collinear
@@ -159,4 +154,3 @@ public final class GeometryUtils
     return areParallel(sideA, sideB);
   }
 }
-

@@ -25,9 +25,8 @@ public class Parallelogram extends Trapezoid
     protected Point[] validate(Point[] points)
     {
         points = super.validate(points);
-        points = new Point[]{points[1], points[2], points[3], points[0]};
         
-        if (!isParallelOrder(points))
+        if (!areParallel(toVector(points[1], points[2]), toVector(points[3], points[0])))
         {
             throw new IllegalArgumentException("Points do not form a quadrilateral with two parallel sides");
         }
@@ -46,4 +45,5 @@ public class Parallelogram extends Trapezoid
         return area;
     }
 }
+
 

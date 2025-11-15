@@ -3,6 +3,9 @@
 // Testing the Quadrilateral class
 // Created 6/29/25
 
+import geometry.Point;
+import geometry.shapes.*;
+
 public class QuadrilateralTest {
     // Test class for all shapes
     public static void main(String[] args) {
@@ -43,4 +46,5 @@ public class QuadrilateralTest {
         );
         System.out.printf("Square: %s\nArea: %.2f\n", square, square.getArea());
     }
+
 }

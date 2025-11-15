@@ -69,6 +69,21 @@ public final class GeometryUtils
 
     return a1 && a2 && a3 && a4;
   }
+
+  public static boolean allSidesEqual(Point[] points)
+  {
+    double s1 = distance(points[0], points[1]);
+    double s2 = distance(points[1], points[2]);
+    double s3 = distance(points[2], points[3]);
+    double s4 = distance(points[3], points[0]);
+
+    boolean S1 = isZero(l1-l2);
+    boolean S2 = isZero(l2-l3);
+    boolean S3 = isZero(l3-l4);
+    boolean S4 = isZero(l4-l1);
+
+    return S1 && S2 && S3 && S4;
+  }
     
   // Check if three points are collinear
   public static boolean areCollinear(Point p1, Point p2, Point p3)
@@ -144,3 +159,4 @@ public final class GeometryUtils
     return areParallel(sideA, sideB);
   }
 }
+

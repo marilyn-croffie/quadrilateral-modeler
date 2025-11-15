@@ -22,11 +22,11 @@ public class Rectangle extends Parallelogram
     // Helper Method(s)
     // checks for congruent angles
     @Override
-    private Point[] validate(Point[] points)
+    protected Point[] validate(Point[] points)
     {
         points = super.validate(points);
         
-        if (!areAllRightAngles())
+        if (!areAllRightAngles(points))
         {
             throw new IllegalArgumentException("Points do not form a rectangle");
         }
@@ -47,3 +47,4 @@ public class Rectangle extends Parallelogram
     }
 
 }
+

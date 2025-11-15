@@ -6,8 +6,8 @@
 // Created 6/28/25
 package geometry.shapes;
 
-import static java.lang.Math.abs;
-import static java.lang.Math.sqrt;
+import static geometry.GeometryUtils;
+import static java.lang.Math;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -15,10 +15,8 @@ import java.util.List;
 
 public class Trapezoid extends Quadrilateral 
 {
-    private HashMap<Double, List<List<Point>>> slopes;
-    private HashMap<Double, Integer> parallelPairCounts;
-    private List<Point> parallelSegmentPoints;
-
+    private Point[] pts;
+    
     public Trapezoid(Point p1, Point p2, Point p3, Point p4)
     {
         // Initialize using superclass constructor
@@ -33,7 +31,7 @@ public class Trapezoid extends Quadrilateral
     @Override
     protected Point[] validate(Point[] points)
     {
-        super.validate();
+        points = super.validate(points);
         
         if (!isParallelOrder(points))
         {
@@ -51,10 +49,10 @@ public class Trapezoid extends Quadrilateral
     // returns the area of a trapezoid
     public double getArea()
     {
-        double base1 = distance(toVector(getPointP1(), getPointP2()));
-        double base2 = distance(toVector(getPointP3(), getPointP4()));
+        double base1 = distance(getP1(), getP2());
+        double base2 = distance(getP3(), getP4());
 
-        double height = height(getPointP1(), getPointP2(), getPointP3());
+        double height = height(getP1(), getP2(), getP3());
 
         double area = ((base1 + base2)/2) * height;
        
@@ -62,5 +60,6 @@ public class Trapezoid extends Quadrilateral
     }
 
 }
+
 
 

@@ -5,8 +5,8 @@
 // Created 6/27/25
 package geometry.shapes;
 
-import geometry.Point;
-import geometry.GeometryUtils;
+import static geometry.Point;
+import static geometry.GeometryUtils;
 
 public abstract class Quadrilateral 
 {
@@ -69,4 +69,5 @@ public abstract class Quadrilateral
                 "second vertex : ", p2, "third vertex : ", p3, "fourth vertex : ", p4);
     }
 }
+
 

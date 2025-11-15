@@ -10,9 +10,31 @@ import geometry.GeometryUtils;
 
 public abstract class Quadrilateral 
 {
-
     private Point p1, p2, p3, p4;
 
+    public Quadrilateral(Point p1, Point p2, Point p3, Point p4)
+    {
+        Point[] pts = new Point[]{p1,p2,p3,p4};
+        pts = validate(pts);
+
+        this.p1 = pts[0];
+        this.p2 = pts[1];
+        this.p3 = pts[2];
+        this.p4 = pts[3];
+    }
+
+    protected Point[] validate(Point[] points)
+    {
+        if (areDuplicates(points) || areCollinear(points))
+        {
+            throw new IllegalArgumentException("Points do not form a quadrilateral");
+        }
+
+        points = sortPointsCyclic(points);
+
+        return points;
+    }
+    
     // Get Methods
     // return first endpoint
     public Point getPoint1()
@@ -47,3 +69,4 @@ public abstract class Quadrilateral
                 "second vertex : ", p2, "third vertex : ", p3, "fourth vertex : ", p4);
     }
 }
+

@@ -34,25 +34,25 @@ public abstract class Quadrilateral
     
     // Get Methods
     // return first endpoint
-    public Point getPoint1()
+    public Point getP1()
     {
         return pts[0];
     }
     
     // return second endpoint
-    public Point getPoint2()
+    public Point getP2()
     {
         return pts[1];
     }
 
     // return third endpoint
-    public Point getPoint3()
+    public Point getP3()
     {
         return pts[2];
     }
 
     // return fourth endpoint
-    public Point getPoint4()
+    public Point getP4()
     {
         return pts[3];
     }
@@ -66,6 +66,7 @@ public abstract class Quadrilateral
                 "second vertex : ", p2, "third vertex : ", p3, "fourth vertex : ", p4);
     }
 }
+
 
 
 

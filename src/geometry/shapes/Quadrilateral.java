@@ -5,8 +5,8 @@
 // Created 6/27/25
 package geometry.shapes;
 
-import static geometry.Point;
-import static geometry.GeometryUtils;
+import geometry.Point;
+import static geometry.GeometryUtils.*;
 
 public abstract class Quadrilateral 
 {
@@ -62,10 +62,11 @@ public abstract class Quadrilateral
     public String toString()
     {
         return String.format("%s%n%s%s%n%s%s%n%s%s%n%s%s%n",
-            "The four vertices of this quadrilateral are:", "first vertex : ", p1, 
-                "second vertex : ", p2, "third vertex : ", p3, "fourth vertex : ", p4);
+            "The four vertices of this quadrilateral are:", "first vertex : ", getP1(), 
+                "second vertex : ", getP2(), "third vertex : ", getP3(), "fourth vertex : ", getP4());
     }
 }
+
 
 
 

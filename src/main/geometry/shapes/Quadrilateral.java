@@ -15,16 +15,21 @@ public abstract class Quadrilateral
     public Quadrilateral(Point p1, Point p2, Point p3, Point p4)
     {
         Point[] points = new Point[]{p1,p2,p3,p4};
-        pts = validate(points);
+        points = validate(points);
 
-        this.pts = pts;
+        this.pts = points;
     }
 
-    protected Point[] validate(Point[] points)
+    protected final Point[] validate(Point[] points)
     {
-        if (areDuplicates(points) || areCollinear(points))
+        if (areDuplicates(points))
         {
-            throw new IllegalArgumentException("Points do not form a quadrilateral");
+            throw new IllegalArgumentException("Points do not form a quadrilateral. There are duplicate points.");
+        }
+
+        if (areCollinear(points))
+        {
+            throw new IllegalArgumentException("Points do not form a quadrilateral. Points are collinear.");
         }
 
         return sortPointsCyclic(points);
@@ -64,6 +69,7 @@ public abstract class Quadrilateral
                 "second vertex : ", getP2(), "third vertex : ", getP3(), "fourth vertex : ", getP4());
     }
 }
+
 
 
 

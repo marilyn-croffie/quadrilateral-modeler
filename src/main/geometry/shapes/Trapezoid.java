@@ -8,11 +8,6 @@ package geometry.shapes;
 
 import geometry.Point;
 import static geometry.GeometryUtils.*;
-import static java.lang.Math;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 
 public class Trapezoid extends Quadrilateral 
 {
@@ -59,6 +54,7 @@ public class Trapezoid extends Quadrilateral
     }
 
 }
+
 
 
 

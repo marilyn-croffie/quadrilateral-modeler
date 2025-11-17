@@ -22,9 +22,9 @@ public class Parallelogram extends Trapezoid
     // Helper Method(s)
     // checks for congruence
     @Override
-    protected Point[] validate(Point[] points)
+    protected Point[] validateFurther(Point[] points)
     {
-        points = super.validate(points);
+        points = super.validateFurther(points);
         
         if (!areParallel(toVector(points[1], points[2]), toVector(points[3], points[0])))
         {
@@ -45,5 +45,6 @@ public class Parallelogram extends Trapezoid
         return area;
     }
 }
+
 
 

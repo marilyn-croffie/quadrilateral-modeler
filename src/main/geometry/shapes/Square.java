@@ -19,9 +19,9 @@ public class Square extends Rectangle
     }
     
     @Override
-    protected Point[] validate(Point[] points)
+    protected Point[] validateFurther(Point[] points)
     {
-        points = super.validate(points);
+        points = super.validateFurther(points);
 
         if (!allSidesEqual(points))
         {
@@ -32,3 +32,4 @@ public class Square extends Rectangle
     }
 
 }
+

@@ -27,10 +27,9 @@ public class Trapezoid extends Quadrilateral
     // i. duplicates,
     // ii. collinearity, and
     // iii. parallel sides
-    @Override
-    protected Point[] validate(Point[] points)
+    protected Point[] validateFurther(Point[] points)
     {
-        points = super.validate(points);
+        points = super.validateFurther(points);
         
         if (!isParallelOrder(points))
         {
@@ -59,6 +58,7 @@ public class Trapezoid extends Quadrilateral
     }
 
 }
+
 
 
 

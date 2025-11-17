@@ -32,6 +32,11 @@ public abstract class Quadrilateral
             throw new IllegalArgumentException("Points do not form a quadrilateral. Points are collinear.");
         }
 
+        return validateFurther(points);
+    }
+
+    protected Point[] validateFurther(Point[] points)
+    {
         return sortPointsCyclic(points);
     }
     
@@ -62,6 +67,7 @@ public abstract class Quadrilateral
 
     public abstract double getArea();
 
+    @Override
     public String toString()
     {
         return String.format("%s%n%s%s%n%s%s%n%s%s%n%s%s%n",
@@ -69,6 +75,7 @@ public abstract class Quadrilateral
                 "second vertex : ", getP2(), "third vertex : ", getP3(), "fourth vertex : ", getP4());
     }
 }
+
 
 
 

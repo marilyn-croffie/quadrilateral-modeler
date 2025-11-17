@@ -22,9 +22,9 @@ public class Rectangle extends Parallelogram
     // Helper Method(s)
     // checks for congruent angles
     @Override
-    protected Point[] validate(Point[] points)
+    protected Point[] validateFurther(Point[] points)
     {
-        points = super.validate(points);
+        points = super.validateFurther(points);
         
         if (!areAllRightAngles(points))
         {
@@ -47,4 +47,5 @@ public class Rectangle extends Parallelogram
     }
 
 }
+
 

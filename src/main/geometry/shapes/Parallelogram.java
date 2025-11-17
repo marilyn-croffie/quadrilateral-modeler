@@ -8,8 +8,6 @@ package geometry.shapes;
 
 import geometry.Point;
 import static geometry.GeometryUtils.*;
-import java.util.Arrays;
-import java.util.List;
 
 public class Parallelogram extends Trapezoid 
 {
@@ -45,6 +43,7 @@ public class Parallelogram extends Trapezoid
         return area;
     }
 }
+
 
 
 

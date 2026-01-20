@@ -25,6 +25,8 @@ Quadrilateral (abstract)
                 └── Square (+ equal sides)
 ```
 
+See the UML diagram in the repository for complete class relationships and method signatures.
+
 ## Implementation Details
 
 - Epsilon tolerance (1e-9) for reliable floating-point comparisons
